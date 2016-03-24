@@ -4,7 +4,8 @@ Root level
 
 First choice : 
 
-Project 2A or Project 2B, is everyone ok with doing both 
+Project 2A or Project 2B, is everyone ok with doing both ?
+
 Project 2AB
 
 2A is inside the musuem (Interactive tour guide? etc? Brainstorm on this)
