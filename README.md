@@ -1,6 +1,23 @@
 # HCIT7
 Root level
 
+Platform : 
+ReactNative for Android/IOS mobile
+
+App layout              O?
+                        |
+Landing page -- phone interupt handler   -- flow in / flow out -- 
+                        |
+Main menu -----branches  
+    |
+Settings
+
+
+
+
+
+
+
 
 First choice : 
 
