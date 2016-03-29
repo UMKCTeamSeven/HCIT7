@@ -1,8 +1,10 @@
 package com.native;
 
+
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
+import com.facebook.stetho.okhttp.BuildConfig;
 
 import java.util.Arrays;
 import java.util.List;
