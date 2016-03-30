@@ -1,5 +1,5 @@
 # HCIT7
-Root level
+Root level  -- Currently does not build in android studio, looking into why 
 
 Platform : 
 ReactNative for Android/IOS mobile
@@ -51,6 +51,8 @@ novice track: ask me for help
 2) From: /srcroot/native
 	cmd:: npm install
 	cmd:: react-native run-ios OR react-native run-android
+
+3. Android Studio open from ~\HCIT7\srcroot\native\android
 
 
 
