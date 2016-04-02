@@ -1,4 +1,4 @@
-package com;
+package com.HCIT7;
 
 
 import com.facebook.react.ReactActivity;

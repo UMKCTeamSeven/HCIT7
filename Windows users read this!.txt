@@ -1,0 +1,27 @@
+
+
+Run cmd as administrator
+
+set ANDROID_HOME=C:\ installation location \android-sdk
+
+set PATH=%PATH%;%ANDROID_HOME%\tools;%ANDROID_HOME%\platform-tools\
+
+This will allow you to run the following commands in cmd
+android (opens sdk manager) 
+adb (android debug bridge)
+
+
+now get Visual studios stand alone android emulator (Free)
+
+create an emulator and run it --  (make sure you select an API lvl 21 or higher)
+
+make sure it shows up when you run the following command in cmd : 
+adb devices
+
+then run adb reverse tcp:8081 tcp:8081
+
+Some useful commands
+adb logcat *:S ReactNative:V ReactNativeJS:V 
+
+
+
