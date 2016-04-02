@@ -1,34 +1,8 @@
 # HCIT7
-Root level  -- Currently does not build in android studio, looking into why 
 
 Platform : 
 ReactNative for Android/IOS mobile
-
-App layout              O?
-                        |
-Landing page -- phone interupt handler   -- flow in / flow out -- 
-                        |
-Main menu -----branches  
-    |
-Settings
-
-
-
-
-
-
-
-
-First choice : 
-
-Project 2A or Project 2B, is everyone ok with doing both ?
-
-Project 2AB
-
-2A is inside the musuem (Interactive tour guide? etc? Brainstorm on this)
-
-2B is outside the musuem (How to get there, open times, other information about attractions and exhibits)
-
+API level 21 min 
 
 https://www.kansascityfed.org/moneymuseum
 
