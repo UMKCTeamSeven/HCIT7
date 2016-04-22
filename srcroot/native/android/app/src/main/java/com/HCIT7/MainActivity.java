@@ -1,4 +1,4 @@
-package com.native;
+package com.HCIT7;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactPackage;
