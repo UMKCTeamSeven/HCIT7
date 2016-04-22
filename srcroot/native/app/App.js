@@ -2,12 +2,19 @@ import {Actions, Scene, Router} from 'react-native-router-flux';
 import React, {Component, Text, AsyncStorage} from 'react-native';
 
 import Home from "./Home"
-import Moneymirror from "./Moneymirror"
 import TableofContents from "./TableofContents"
 
-import Container from "./layout/Container"
+import KioskContainer from "./kiosk/KioskContainer"
+import KioskLanding from "./kiosk/KioskLanding"
+import KioskDetails from "./kiosk/KioskDetails"
+
+import MoneymirrorLanding from "./moneymirror/MoneymirrorLanding"
+import MoneymirrorMoneyShot from "./moneymirror/MoneyShot"
 
 import TourContainer from "./tour/TourContainer"
+import TourLanding from "./tour/TourLanding"
+import TourCounterfiet from "./tour/TourCounterfiet"
+import TourCoins from "./tour/TourCoins"
 
 
 class TabIcon extends Component {
@@ -26,12 +33,24 @@ class App extends Component {
     return(
     	<Router>
         <Scene key="root">
-          <Scene key="home" component={Home} hideNavBar={true}/>
-          <Scene key="moneymirror" component={Moneymirror}/>
-          <Scene key="tableofcontents" component={TableofContents}/>
+          <Scene key="home" component={Home} hideNavBar={true} initial={true}/>
 
+          <Scene key="moneymirror">
+            <Scene key="moneymirror_landing" component={MoneymirrorLanding} hideNavBar={true}/>
+            <Scene key="moneyshot" component={MoneymirrorMoneyShot} hideNavBar={true}/>
+          </Scene>
 
-          <Scene key="tour" component={TourContainer}/>
+          <Scene key="kioskOverview" component={KioskContainer}>
+            <Scene key="kiosk_landing" component={KioskLanding} hideNavBar={true}/>
+            <Scene key="kiosk_details" component={KioskDetails} hideNavBar={true}/>
+          </Scene>
+
+          <Scene key="tour" component={TourContainer}>
+            <Scene key="tour_landing" component={TourLanding} hideNavBar={true} />
+            <Scene key="tour_counterfiet" component={TourCounterfiet} hideNavBar={true} />
+            <Scene key="tour_coins" component={TourCoins} hideNavBar={true} />
+          </Scene>
+
         </Scene>
       </Router>
     )

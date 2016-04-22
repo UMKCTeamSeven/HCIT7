@@ -21,7 +21,7 @@ class HorzPageContainer extends Component {
 
 let styles = StyleSheet.create({
   container:{
-    paddingTop:60,
+    paddingTop:30,
     flexDirection: "row",
     flex: 1,
     justifyContent: "space-around"

@@ -21,52 +21,51 @@ class Tour extends Component {
       currentLocation: {}
     }
   }
+  componentWillReceiveProps(nextProps){
+    Actions.refresh(nextProps)
+  }
     render() {
         let h2 = height-60,
             w2 = 3*width/4
         return(
           <Lay.PageContainer>
-              <Image
-                resizeMode="stretch"
-                style={_.assign({}, styles.map, styles.pos)}
-                source={require("../../CurrencyPhotos/map.png")} />
-              <LocBtn title="Counterfiet" active={this.state.currentLocation}
-                activekey="Counterfiet Money"
-                dim={ {bottom: (90*h2/100), left: (58*w2/100)} }
-                onPress={ this.gotoLoc.bind(this,"t") } />
-              <LocBtn title="Coins" active={this.state.currentLocation}
-                activekey="Coin Wall"
-                dim={ {bottom: (39*h2/100), left: (86*w2/100)} }
-                onPress={ this.gotoLoc.bind(this,"r") } />
-              <LocBtn title="abc" active={this.state.currentLocation}
-                activekey="abc"
-                dim={ {bottom: (3*h2/100), left: (50*w2/100)} }
-                onPress={ this.gotoLoc.bind(this,"b") } />
-              <LocBtn title="abc" active={this.state.currentLocation}
-                activekey="123"
-                dim={ {bottom: (47*h2/100), left: (15*w2/100)} }
-                onPress={ this.gotoLoc.bind(this,"l") } />
-              <View style={_.assign({}, styles.pos,
-                {bottom: (h2-54), left: (w2-50),
-                  borderStyle:"solid", borderColor: "red", borderWidth:1,
-                  height:50,width:50})}>
-                <TouchableHighlight onPress={ this.nav.bind(this,this.state.currentLocation.link) } underlayColor={"white"}>
-                  <View>
-                  <Text style={{fontSize:5}}>
-                    { "Location: "+ this.state.currentLocation.title }
-                  </Text>
-                  <Text style={{fontSize:5}}>
-                    { "About: "+ this.state.currentLocation.about }
-                  </Text>
-                  </View>
-                </TouchableHighlight>
-              </View>
+            <Image
+              resizeMode="stretch"
+              style={_.assign({}, styles.map, styles.pos)}
+              source={require("../../CurrencyPhotos/map.png")} />
+            <LocBtn title="Counterfiet" active={this.state.currentLocation}
+              activekey="Counterfiet Money"
+              dim={ {bottom: (90*h2/100), left: (58*w2/100)} }
+              onPress={ this.gotoLoc.bind(this,"t") } />
+            <LocBtn title="Coins" active={this.state.currentLocation}
+              activekey="Coin Wall"
+              dim={ {bottom: (39*h2/100), left: (86*w2/100)} }
+              onPress={ this.gotoLoc.bind(this,"r") } />
+            <LocBtn title="abc" active={this.state.currentLocation}
+              activekey="abc"
+              dim={ {bottom: (3*h2/100), left: (50*w2/100)} }
+              onPress={ this.gotoLoc.bind(this,"b") } />
+            <LocBtn title="abc" active={this.state.currentLocation}
+              activekey="123"
+              dim={ {bottom: (47*h2/100), left: (15*w2/100)} }
+              onPress={ this.gotoLoc.bind(this,"l") } />
+            <View style={_.assign({}, styles.pos,
+              {bottom: (h2-54), left: (w2-50),
+                borderStyle:"solid", borderColor: "red", borderWidth:1,
+                height:50,width:50})}>
+              <TouchableHighlight onPress={ Actions[this.state.currentLocation.link] } underlayColor={"white"}>
+                <View>
+                <Text style={{fontSize:5}}>
+                  { "Location: "+ this.state.currentLocation.title }
+                </Text>
+                <Text style={{fontSize:5}}>
+                  { "About: "+ this.state.currentLocation.about }
+                </Text>
+                </View>
+              </TouchableHighlight>
+            </View>
           </Lay.PageContainer>
         )
-    }
-
-    nav(loc){
-      Actions[loc]()
     }
 
     gotoLoc(loc){
@@ -112,7 +111,7 @@ var styles = {
   },
   map:{
     backgroundColor:"gray",
-    height: height-60,
+    height: height-30,
     width: 3*width/4
   }
 }

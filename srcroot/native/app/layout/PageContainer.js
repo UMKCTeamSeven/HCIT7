@@ -21,6 +21,7 @@ class PageContainer extends Component {
 
 let styles = StyleSheet.create({
   container:{
+    marginTop:30,
     flexDirection: "column",
     flex: 1,
     alignItems: "center",

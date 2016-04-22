@@ -28,8 +28,8 @@ class Home extends Component {
               </TouchableHighlight>
             </View>
             <View style={ _.assign({}, styles.btn) }>
-              <TouchableHighlight onPress={ Actions.tableofcontents }>
-                <Text>Museum Overview</Text>
+              <TouchableHighlight onPress={ Actions.kioskOverview }>
+                <Text>Kiosk Overview</Text>
               </TouchableHighlight>
             </View>
           </View>
