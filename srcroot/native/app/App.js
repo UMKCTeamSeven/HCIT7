@@ -26,7 +26,7 @@ class App extends Component {
     return(
     	<Router>
         <Scene key="root">
-          <Scene key="home" component={Home}/>
+          <Scene key="home" component={Home} hideNavBar={true}/>
           <Scene key="moneymirror" component={Moneymirror}/>
           <Scene key="tableofcontents" component={TableofContents}/>
 
