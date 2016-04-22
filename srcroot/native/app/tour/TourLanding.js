@@ -32,7 +32,7 @@ class Tour extends Component {
             <Image
               resizeMode="stretch"
               style={_.assign({}, styles.map, styles.pos)}
-              source={require("../../CurrencyPhotos/map.png")} />
+              source={require("../../CurrencyPhotos/GuidedTour_bg.jpg")} />
             <LocBtn title="Counterfiet" active={this.state.currentLocation}
               activekey="Counterfiet Money"
               dim={ {bottom: (90*h2/100), left: (58*w2/100)} }

@@ -26,9 +26,6 @@ class TourContainer extends Component {
     return(
     	<Lay.HorzPageContainer>
         <BreadCrumbs path={breadCrumbs} />
-    		<View style={{flex:1,marginTop:10}}>
-    			<TableofContents />
-    		</View>
     		<View style={{flex:3}}>
     			<DefaultRenderer navigationState={this.props.navigationState.children[0]} />
     		</View>
@@ -39,3 +36,10 @@ class TourContainer extends Component {
 
 
 module.exports = TourContainer
+
+/*
+
+        <View style={{flex:1,marginTop:10}}>
+          <TableofContents />
+        </View>
+*/
