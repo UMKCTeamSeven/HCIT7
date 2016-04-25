@@ -36,7 +36,7 @@ class MoneymirrorLanding extends Component {
         title:"home",
         link: "home"
       },{
-        title:"moneyShot",
+        title:"moneymirror",
         link: "moneymirror"
       }]
       return(
