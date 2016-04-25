@@ -29,25 +29,29 @@ class Tour extends Component {
           about: "Shows the security features in currency",
           link: {data:"testing"},
           bottom: (45*h/100),
-          left: (38*w/100)
+          left: (38*w/100),
+          pic: require("../assets/money/50_noface.jpg")
         },{
           title:"Coin Wall",
           about: "Coins from every president",
           link: {data:"testing"},
           bottom: (37*h/100),
-          left: (69*w/100)
+          left: (69*w/100),
+          pic: require("../assets/money/50_noface.jpg")
         },{
           title:"abc123",
           about: "abc and 123",
           link: {data:"testing"},
           bottom: (26*h/100),
-          left: (51*w/100)
+          left: (51*w/100),
+          pic: require("../assets/money/50_noface.jpg")
         },{
           title:"123",
           about: "abc and 123",
           link: {data:"testing"},
           bottom: (35*h/100),
-          left: (30*w/100)
+          left: (30*w/100),
+          pic: require("../assets/money/50_noface.jpg")
       }]
     }
   }
@@ -71,7 +75,7 @@ class Tour extends Component {
             <Image
               resizeMode="stretch"
               style={_.assign({}, styles.map, styles.pos)}
-              source={require("../../CurrencyPhotos/GuidedTour_bg2.jpg")} />
+              source={require("../assets/money/GuidedTour_bg2.jpg")} />
             { _.map(this.state.locations,this.buttons.bind(this)) }
             { this.currentlyNear(this.state.locations[1]) }
           </Lay.PageContainer>

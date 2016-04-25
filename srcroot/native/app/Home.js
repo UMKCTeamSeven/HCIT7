@@ -16,7 +16,7 @@ class Home extends Component {
           <View style={ styles.header }>
             <Text style={ {fontSize:40,fontWeight:"900"} }>Money Museum</Text>
           </View>
-          <View style={{flex:1}}>
+          <View style={{flex:2}}>
             <View style={ _.assign({},styles.btn) }>
               <TouchableHighlight onPress={ Actions.tour_landing }>
                 <Text>Guided Tour</Text>

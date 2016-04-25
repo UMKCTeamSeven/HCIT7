@@ -38,7 +38,7 @@ class MoneyWall extends Component {
                 <Image
                   resizeMode="stretch"
                   style={_.assign({}, styles.wall)}
-                  source={require("../../CurrencyPhotos/GuidedTour_bg2.jpg")} />
+                  source={require("../assets/money/GuidedTour_bg2.jpg")} />
                 <Text>
                 abc
                 </Text>

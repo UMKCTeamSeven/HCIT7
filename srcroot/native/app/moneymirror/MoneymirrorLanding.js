@@ -15,22 +15,22 @@ class MoneymirrorLanding extends Component {
     render() {
       let bills=[{
         value: 100,
-        pic: require("../../CurrencyPhotos/100DollarUSAOriginal_ROT90.png")
+        pic: require("../assets/money/100DollarUSAOriginal_ROT90.png")
       },{
         value: 50,
-        pic: require("../../CurrencyPhotos/50_noface.jpg")
+        pic: require("../assets/money/50_noface.jpg")
       },{
         value: 20,
-        pic: require("../../CurrencyPhotos/20_noface.jpg")
+        pic: require("../assets/money/20_noface.jpg")
       },{
         value: 10,
-        pic: require("../../CurrencyPhotos/10_noface.jpg")
+        pic: require("../assets/money/10_noface.jpg")
       },{
         value: 5,
-        pic: require("../../CurrencyPhotos/5_noface.jpg")
+        pic: require("../assets/money/5_noface.jpg")
       },{
         value: 1,
-        pic: require("../../CurrencyPhotos/1_noface.jpg")
+        pic: require("../assets/money/1_noface.jpg")
       }]
       let breadCrumbs = [{
         title:"home",

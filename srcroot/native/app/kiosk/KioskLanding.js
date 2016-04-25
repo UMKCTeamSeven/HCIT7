@@ -33,19 +33,23 @@ class KioskLanding extends Component {
       let locations = [{
           title:"Counterfiet Money",
           about: "Shows the security features in currency",
-          link: {data:"testing"}
+          link: {data:"testing"},
+          pic: require("../assets/money/50_noface.jpg")
         },{
           title:"Coin Wall",
           about: "Coins from every president",
-          link: {data:"testing"}
+          link: {data:"testing"},
+          pic: require("../assets/money/50_noface.jpg")
         },{
           title:"abc123",
           about: "abc and 123",
-          link: {data:"testing"}
+          link: {data:"testing"},
+          pic: require("../assets/money/50_noface.jpg")
         },{
           title:"123",
           about: "abc and 123",
-          link: {data:"testing"}
+          link: {data:"testing"},
+          pic: require("../assets/money/50_noface.jpg")
       }]
         return (
       <Lay.HorzPageContainer>
@@ -62,9 +66,15 @@ class KioskLanding extends Component {
       return(
         <TouchableHighlight key={indx} style={styles.card}
             onPress={ this.gotoKiosk.bind(this,item) }>
-          <Text style={{fontSize:15}}>
-            {item.title}
-          </Text>
+            <View>
+              <Text style={{fontSize:10}}>
+                {item.title}
+              </Text>
+              <Image
+                resizeMode="stretch"
+                style={_.assign({}, styles.pic)}
+                source={item.pic} />
+            </View>
         </TouchableHighlight>
       )
     }
@@ -74,9 +84,13 @@ class KioskLanding extends Component {
 }
 
 var styles = {
+  pic:{
+    height: width/3,
+    width: width/3
+  },
   card:{
     width: width/3,
-    height: width/3,
+    height: width/3+20,
     backgroundColor: "green",
     borderColor: "black",
     borderWidth: 1

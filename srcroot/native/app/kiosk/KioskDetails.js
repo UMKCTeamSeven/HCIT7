@@ -44,7 +44,7 @@ class Tour extends Component {
                 <Image
                   resizeMode="stretch"
                   style={_.assign({}, styles.pic)}
-                  source={require("../../CurrencyPhotos/GuidedTour_bg2.jpg")} />
+                  source={this.props.pic} />
                 <Text>
                   { this.props.about }
                 </Text>
