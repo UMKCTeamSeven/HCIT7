@@ -15,7 +15,7 @@ import LocBtn from "../UI/LocBtn"
 import Lay from "../layout/Layout"
 import BreadCrumbs from "../layout/BreadCrumbs"
 
-class Tour extends Component {
+class MoneyWall extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -27,26 +27,20 @@ class Tour extends Component {
           title:"home",
           link: "home"
         },{
-          title:"kiosks",
-          link: "kiosk_landing"
-        },{
-          title:"details",
-          link: "kiosk_landing"
+          title:"coins",
+          link: "moneywall"
         }]
         return(
           <Lay.HorzPageContainer>
             <BreadCrumbs path={breadCrumbs} />
             <View style={{flex:1}}>
               <View style={styles.container}>
-                <Text>
-                  { this.props.title }
-                </Text>
                 <Image
                   resizeMode="stretch"
-                  style={_.assign({}, styles.pic)}
+                  style={_.assign({}, styles.wall)}
                   source={require("../../CurrencyPhotos/GuidedTour_bg2.jpg")} />
                 <Text>
-                  { this.props.about }
+                abc
                 </Text>
               </View>
             </View>
@@ -56,12 +50,12 @@ class Tour extends Component {
 }
 
 var styles = {
-  pic:{
-    height: width-100,
+  wall:{
+    height: 100,
     width: height
   },
   container:{
   }
 }
 
-module.exports = Tour
+module.exports = MoneyWall

@@ -13,97 +13,111 @@ import _ from "lodash"
 
 import LocBtn from "../UI/LocBtn"
 import Lay from "../layout/Layout"
+import BreadCrumbs from "../layout/BreadCrumbs"
 
 class Tour extends Component {
   constructor(props) {
     super(props)
+
+        let h = width-30,
+            w = height
+
     this.state = {
-      currentLocation: {}
+      currentLocation: 0,
+      locations:[{
+          title:"Counterfiet Money",
+          about: "Shows the security features in currency",
+          link: {data:"testing"},
+          bottom: (45*h/100),
+          left: (38*w/100)
+        },{
+          title:"Coin Wall",
+          about: "Coins from every president",
+          link: {data:"testing"},
+          bottom: (37*h/100),
+          left: (69*w/100)
+        },{
+          title:"abc123",
+          about: "abc and 123",
+          link: {data:"testing"},
+          bottom: (26*h/100),
+          left: (51*w/100)
+        },{
+          title:"123",
+          about: "abc and 123",
+          link: {data:"testing"},
+          bottom: (35*h/100),
+          left: (30*w/100)
+      }]
     }
   }
   componentWillReceiveProps(nextProps){
     Actions.refresh(nextProps)
   }
-    render() {
-        let h2 = height-60,
-            w2 = 3*width/4
-        return(
+  render() {
+     let breadCrumbs = [{
+          title:"home",
+          link: "home"
+        },{
+          title:"Guided Tour",
+          link: "tour"
+        }]
+
+    return(
+      <Lay.HorzPageContainer>
+        <BreadCrumbs path={breadCrumbs} />
+        <View style={{flex:3}}>
           <Lay.PageContainer>
             <Image
               resizeMode="stretch"
               style={_.assign({}, styles.map, styles.pos)}
-              source={require("../../CurrencyPhotos/GuidedTour_bg.jpg")} />
-            <LocBtn title="Counterfiet" active={this.state.currentLocation}
-              activekey="Counterfiet Money"
-              dim={ {bottom: (90*h2/100), left: (58*w2/100)} }
-              onPress={ this.gotoLoc.bind(this,"t") } />
-            <LocBtn title="Coins" active={this.state.currentLocation}
-              activekey="Coin Wall"
-              dim={ {bottom: (39*h2/100), left: (86*w2/100)} }
-              onPress={ this.gotoLoc.bind(this,"r") } />
-            <LocBtn title="abc" active={this.state.currentLocation}
-              activekey="abc"
-              dim={ {bottom: (3*h2/100), left: (50*w2/100)} }
-              onPress={ this.gotoLoc.bind(this,"b") } />
-            <LocBtn title="abc" active={this.state.currentLocation}
-              activekey="123"
-              dim={ {bottom: (47*h2/100), left: (15*w2/100)} }
-              onPress={ this.gotoLoc.bind(this,"l") } />
-            <View style={_.assign({}, styles.pos,
-              {bottom: (h2-54), left: (w2-50),
-                borderStyle:"solid", borderColor: "red", borderWidth:1,
-                height:50,width:50})}>
-              <TouchableHighlight onPress={ Actions[this.state.currentLocation.link] } underlayColor={"white"}>
-                <View>
-                <Text style={{fontSize:5}}>
-                  { "Location: "+ this.state.currentLocation.title }
-                </Text>
-                <Text style={{fontSize:5}}>
-                  { "About: "+ this.state.currentLocation.about }
-                </Text>
-                </View>
-              </TouchableHighlight>
-            </View>
+              source={require("../../CurrencyPhotos/GuidedTour_bg2.jpg")} />
+            { _.map(this.state.locations,this.buttons.bind(this)) }
+            { this.currentlyNear(this.state.locations[1]) }
           </Lay.PageContainer>
-        )
-    }
+        </View>
+      </Lay.HorzPageContainer>
+    )
+  }
+  buttons(btn, indx){
+    return(
+      <LocBtn key={indx} data={btn} active={this.state.currentLocation==indx}
+        btnKey={indx} onPress={ this.currentBtn.bind(this) } />
+    )
+  }
+  currentBtn(indx){
+    this.setState({currentLocation: indx})
+  }
+  currentlyNear(item){
+    if(this.state.currentLocation == 3)
+    return(
+      <View style={ _.assign({}, styles.near) }>
+        <TouchableHighlight onPress={ this.gotoNear.bind(this,item) }>
+            <Text style={{fontSize:10}}>
+              go to kiosk ->
+            </Text>
+        </TouchableHighlight>
+      </View>
+    )
+  }
+  gotoNear(item){
+    Actions.kiosk_details(item)
+  }
 
-    gotoLoc(loc){
-      switch(loc){
-        case "t":
-          this.setState({currentLocation:{
-            title:"Counterfiet Money",
-            about: "Shows the security features in currency",
-            link: "tour_counterfiet"
-          }})
-          break;
-        case "r":
-          this.setState({currentLocation:{
-            title:"Coin Wall",
-            about: "Coins from every president",
-            link: "tour_coins"
-          }})
-          break;
-        case "b":
-          this.setState({currentLocation:{
-            title:"abc",
-            about: "abc and 123",
-            link: "tour_coins"
-          }})
-          break;
-        case "l":
-          this.setState({currentLocation:{
-            title:"abc",
-            about: "abc and 123",
-            link: "tour_coins"
-          }})
-          break;
-      }
-      console.log(loc)
-    }
 }
 
 var styles = {
+  near:{
+    position: "absolute",
+    height:30,
+    width:50,
+    top: -20,
+    right: 10,
+    borderColor: "darkgray",
+    borderRadius: 2,
+    borderWidth: 1,
+    backgroundColor: "lightgray",
+  },
   pos:{
     position: "absolute",
     bottom: 0,
@@ -111,8 +125,8 @@ var styles = {
   },
   map:{
     backgroundColor:"gray",
-    height: height-30,
-    width: 3*width/4
+    height: width-30,
+    width: height
   }
 }
 

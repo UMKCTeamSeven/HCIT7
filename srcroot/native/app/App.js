@@ -10,6 +10,7 @@ import KioskDetails from "./kiosk/KioskDetails"
 
 import MoneymirrorLanding from "./moneymirror/MoneymirrorLanding"
 import MoneymirrorMoneyShot from "./moneymirror/MoneyShot"
+import MoneyWall from "./moneymirror/MoneyWall"
 
 import TourContainer from "./tour/TourContainer"
 import TourLanding from "./tour/TourLanding"
@@ -35,21 +36,22 @@ class App extends Component {
         <Scene key="root">
           <Scene key="home" component={Home} hideNavBar={true} initial={true}/>
 
-          <Scene key="moneymirror">
+
             <Scene key="moneymirror_landing" component={MoneymirrorLanding} hideNavBar={true}/>
             <Scene key="moneyshot" component={MoneymirrorMoneyShot} hideNavBar={true}/>
-          </Scene>
 
-          <Scene key="kioskOverview" component={KioskContainer}>
+            <Scene key="moneywall" component={MoneyWall} hideNavBar={true}/>
+
+
+
             <Scene key="kiosk_landing" component={KioskLanding} hideNavBar={true}/>
             <Scene key="kiosk_details" component={KioskDetails} hideNavBar={true}/>
-          </Scene>
 
-          <Scene key="tour" component={TourContainer}>
+
+
             <Scene key="tour_landing" component={TourLanding} hideNavBar={true} />
             <Scene key="tour_counterfiet" component={TourCounterfiet} hideNavBar={true} />
             <Scene key="tour_coins" component={TourCoins} hideNavBar={true} />
-          </Scene>
 
         </Scene>
       </Router>

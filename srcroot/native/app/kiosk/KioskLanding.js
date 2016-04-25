@@ -13,6 +13,7 @@ import _ from "lodash"
 
 import LocBtn from "../UI/LocBtn"
 import Lay from "../layout/Layout"
+import BreadCrumbs from "../layout/BreadCrumbs"
 
 class KioskLanding extends Component {
   constructor(props) {
@@ -21,20 +22,54 @@ class KioskLanding extends Component {
     }
   }
     render() {
+        let breadCrumbs = [{
+          title:"home",
+          link: "home"
+        },{
+          title:"kiosks",
+          link: "kiosk_landing"
+        }]
+
+      let locations = [{
+          title:"Counterfiet Money",
+          about: "Shows the security features in currency",
+          link: {data:"testing"}
+        },{
+          title:"Coin Wall",
+          about: "Coins from every president",
+          link: {data:"testing"}
+        },{
+          title:"abc123",
+          about: "abc and 123",
+          link: {data:"testing"}
+        },{
+          title:"123",
+          about: "abc and 123",
+          link: {data:"testing"}
+      }]
         return (
+      <Lay.HorzPageContainer>
+        <BreadCrumbs path={breadCrumbs} />
+        <View style={{flex:1}}>
           <View style={styles.container}>
-            { _.map(["kiosk 1","kiosk 2","3","4"],this.card) }
+            { _.map(locations, this.card.bind(this)) }
           </View>
+        </View>
+      </Lay.HorzPageContainer>
         )
     }
     card(item,indx){
       return(
-        <View key={indx} style={styles.card}>
+        <TouchableHighlight key={indx} style={styles.card}
+            onPress={ this.gotoKiosk.bind(this,item) }>
           <Text style={{fontSize:15}}>
-            {item}
+            {item.title}
           </Text>
-        </View>
+        </TouchableHighlight>
       )
+    }
+    gotoKiosk(item){
+      Actions.kiosk_details(item)
     }
 }
 

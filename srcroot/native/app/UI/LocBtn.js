@@ -8,43 +8,85 @@ import React, {
 var {height, width} = Dimensions.get('window');
 
 import _ from "lodash"
+import {Actions} from 'react-native-router-flux'
 
 class LocationButton extends Component {
   constructor(props) {
     super(props)
-    this.state = {width: 0}
   }
   render() {
+        let h2 = width-30,
+            w2 = height
 
-    var styles = {
-      location:{
-        position: "absolute",
-        backgroundColor: "white",
-        height: 30,
-        bottom: this.props.dim.bottom,
-        left: this.props.dim.left-(this.state.width/2),
-        borderRadius: 5,
-        borderWidth: 1,
-      }
+    let active = {  bottom: this.props.data.bottom,
+                    left: this.props.data.left
     }
-    let active = {}
-    if(this.props.active.title == this.props.activekey)
-      active = {backgroundColor:"green"}
+    if(this.props.active)
+      active.backgroundColor ="green"
 
     return(
-      <TouchableHighlight onPress={ this.props.onPress }
-        style={ _.assign({}, styles.location, active) }>
-          <Text style={ {justifyContent:"center"} } onLayout={ this.getSize.bind(this) }>
-            { (this.props.title)? this.props.title : "?" }
-          </Text>
-      </TouchableHighlight>
+      <View style={ _.assign({}, styles.location, active) }>
+        <TouchableHighlight onPress={ this.btnPress.bind(this,this.props.btnKey) }>
+            <Text/>
+        </TouchableHighlight>
+        { this.infoBox() }
+      </View>
     )
   }
-
-  getSize(a){
-    this.setState({width:a.nativeEvent.layout.width})
+  btnPress(indx){
+    this.props.onPress(indx)
+  }
+  infoBox(){
+    if(this.props.active)
+    return(
+      <View style={_.assign({}, styles.info)}>
+        <Text style={{fontSize:5}}>
+          { "Location: "+ this.props.data.title }
+        </Text>
+        <Text style={{fontSize:5}}>
+          About: { this.props.data.about }
+        </Text>
+        <TouchableHighlight onPress={ this.moreInfoPress.bind(this) } underlayColor={"white"}>
+          <Text style={{fontSize:5,color:"blue"}}>
+            More...
+          </Text>
+        </TouchableHighlight>
+      </View>
+    )
+  }
+  moreInfoPress(){
+    Actions.kiosk_details(this.props.data)
   }
 }
 
+var styles = {
+  info:{
+    position: "relative",
+    borderStyle:"solid",
+    bottom: 30,
+    left: 15,
+    borderColor: "darkgray",
+    borderRadius: 5,
+    borderWidth: 1,
+    backgroundColor: "lightgray",
+    padding: 3,
+    width: 70
+  },
+  location:{
+    position: "absolute",
+    height:15,
+    width:15,
+    borderRadius: 15,
+    borderWidth: 2,
+  }
+}
 
 module.exports = LocationButton
+
+
+/*
+
+
+
+
+*/

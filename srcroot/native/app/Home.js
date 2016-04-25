@@ -18,18 +18,23 @@ class Home extends Component {
           </View>
           <View style={{flex:1}}>
             <View style={ _.assign({},styles.btn) }>
-              <TouchableHighlight onPress={ Actions.tour }>
+              <TouchableHighlight onPress={ Actions.tour_landing }>
                 <Text>Guided Tour</Text>
               </TouchableHighlight>
             </View>
             <View style={ _.assign({}, styles.btn) }>
-              <TouchableHighlight onPress={ Actions.moneymirror }>
+              <TouchableHighlight onPress={ Actions.moneymirror_landing }>
                 <Text>Money Mirror</Text>
               </TouchableHighlight>
             </View>
             <View style={ _.assign({}, styles.btn) }>
-              <TouchableHighlight onPress={ Actions.kioskOverview }>
-                <Text>Kiosk Overview</Text>
+              <TouchableHighlight onPress={ Actions.moneywall }>
+                <Text>Coin Wall</Text>
+              </TouchableHighlight>
+            </View>
+            <View style={ _.assign({}, styles.btn) }>
+              <TouchableHighlight onPress={ Actions.kiosk_landing }>
+                <Text>Kiosks</Text>
               </TouchableHighlight>
             </View>
           </View>
@@ -43,7 +48,6 @@ var styles = {
     flex: 1
   },
   container: {
-    marginTop: 100,
     flexDirection: "column",
     flex: 1,
     alignItems: "center",

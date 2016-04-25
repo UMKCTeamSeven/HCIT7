@@ -62,14 +62,16 @@ var styles = {
     padding: 3,
     marginRight: 10,
     borderWidth: 1,
-    borderColor: "blue"
+    borderColor: "blue",
+    borderRadius: 3
   },
   lastCrumb:{
     flex: 1,
     padding: 3,
     marginRight: 10,
     borderWidth: 1,
-    borderColor: "red"
+    borderColor: "red",
+    borderRadius: 3
   }
 }
 
