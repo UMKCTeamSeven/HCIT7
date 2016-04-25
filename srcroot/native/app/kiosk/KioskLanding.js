@@ -15,6 +15,8 @@ import LocBtn from "../UI/LocBtn"
 import Lay from "../layout/Layout"
 import BreadCrumbs from "../layout/BreadCrumbs"
 
+import Locations from "../location"
+
 class KioskLanding extends Component {
   constructor(props) {
     super(props)
@@ -29,34 +31,13 @@ class KioskLanding extends Component {
           title:"kiosks",
           link: "kiosk_landing"
         }]
-
-      let locations = [{
-          title:"Counterfiet Money",
-          about: "Shows the security features in currency",
-          link: {data:"testing"},
-          pic: require("../assets/money/50_noface.jpg")
-        },{
-          title:"Coin Wall",
-          about: "Coins from every president",
-          link: {data:"testing"},
-          pic: require("../assets/money/50_noface.jpg")
-        },{
-          title:"abc123",
-          about: "abc and 123",
-          link: {data:"testing"},
-          pic: require("../assets/money/50_noface.jpg")
-        },{
-          title:"123",
-          about: "abc and 123",
-          link: {data:"testing"},
-          pic: require("../assets/money/50_noface.jpg")
-      }]
+        
         return (
       <Lay.HorzPageContainer>
         <BreadCrumbs path={breadCrumbs} />
         <View style={{flex:1}}>
           <View style={styles.container}>
-            { _.map(locations, this.card.bind(this)) }
+            { _.map(Locations, this.card.bind(this)) }
           </View>
         </View>
       </Lay.HorzPageContainer>

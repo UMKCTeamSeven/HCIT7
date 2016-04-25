@@ -18,8 +18,8 @@ class LocationButton extends Component {
         let h2 = width-30,
             w2 = height
 
-    let active = {  bottom: this.props.data.bottom,
-                    left: this.props.data.left
+    let active = {  bottom: this.props.data.bottom*h2/100,
+                    left: this.props.data.left*w2/100
     }
     if(this.props.active)
       active.backgroundColor ="green"

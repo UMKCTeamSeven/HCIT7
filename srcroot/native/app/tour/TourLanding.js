@@ -15,6 +15,8 @@ import LocBtn from "../UI/LocBtn"
 import Lay from "../layout/Layout"
 import BreadCrumbs from "../layout/BreadCrumbs"
 
+import Locations from "../location"
+
 class Tour extends Component {
   constructor(props) {
     super(props)
@@ -23,36 +25,7 @@ class Tour extends Component {
             w = height
 
     this.state = {
-      currentLocation: 0,
-      locations:[{
-          title:"Counterfiet Money",
-          about: "Shows the security features in currency",
-          link: {data:"testing"},
-          bottom: (45*h/100),
-          left: (38*w/100),
-          pic: require("../assets/money/50_noface.jpg")
-        },{
-          title:"Coin Wall",
-          about: "Coins from every president",
-          link: {data:"testing"},
-          bottom: (37*h/100),
-          left: (69*w/100),
-          pic: require("../assets/money/50_noface.jpg")
-        },{
-          title:"abc123",
-          about: "abc and 123",
-          link: {data:"testing"},
-          bottom: (26*h/100),
-          left: (51*w/100),
-          pic: require("../assets/money/50_noface.jpg")
-        },{
-          title:"123",
-          about: "abc and 123",
-          link: {data:"testing"},
-          bottom: (35*h/100),
-          left: (30*w/100),
-          pic: require("../assets/money/50_noface.jpg")
-      }]
+      currentLocation: 0
     }
   }
   componentWillReceiveProps(nextProps){
@@ -76,8 +49,8 @@ class Tour extends Component {
               resizeMode="stretch"
               style={_.assign({}, styles.map, styles.pos)}
               source={require("../assets/money/GuidedTour_bg2.jpg")} />
-            { _.map(this.state.locations,this.buttons.bind(this)) }
-            { this.currentlyNear(this.state.locations[1]) }
+            { _.map(Locations,this.buttons.bind(this)) }
+            { this.currentlyNear(Locations[1]) }
           </Lay.PageContainer>
         </View>
       </Lay.HorzPageContainer>
