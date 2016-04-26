@@ -50,7 +50,7 @@ class Tour extends Component {
               style={_.assign({}, styles.map, styles.pos)}
               source={require("../assets/money/GuidedTour_bg2.jpg")} />
             { _.map(Locations,this.buttons.bind(this)) }
-            { this.currentlyNear(Locations[1]) }
+            { this.currentlyNear(Locations[3]) }
           </Lay.PageContainer>
         </View>
       </Lay.HorzPageContainer>

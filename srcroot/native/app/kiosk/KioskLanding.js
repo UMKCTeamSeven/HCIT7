@@ -72,7 +72,7 @@ var styles = {
   card:{
     width: width/3,
     height: width/3+20,
-    backgroundColor: "green",
+    backgroundColor: "lightgray",
     borderColor: "black",
     borderWidth: 1
   },

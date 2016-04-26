@@ -41,15 +41,22 @@ class MoneyWall extends Component {
               <View style={styles.container}>
                 <View style={styles.panel}>
                   <Image
+                    resizeMode="stretch"
                     style={_.assign({}, styles.panelImg)}
-                    source={require("../assets/kiosks/CoinWall.jpg")} />
+                    source={require("../assets/apres.jpg")} />
                 </View>
 
                 <View style={styles.coins}>
+                <TouchableHighlight onPress={ Actions.coins }>
                   <Image
                     resizeMode="stretch"
-                    style={_.assign({}, styles.panelImg)}
-                    source={require("../assets/kiosks/CoinWall.jpg")} />
+                    style={_.assign({}, styles.coinImg)}
+                    source={require("../assets/money/pennyfront.png")} />
+                </TouchableHighlight>
+                  <Image
+                    resizeMode="stretch"
+                    style={_.assign({}, styles.coinImg)}
+                    source={require("../assets/money/nickelfront.png")} />
                 </View>
               </View>
             </View>
@@ -59,21 +66,23 @@ class MoneyWall extends Component {
 }
 
 var styles = {
+  coinImg:{
+    height: 70,
+    width: 75
+  },
   panelImg:{
     height: 150,
-    width: 100
+    width: 90
   },
   wall:{
     height: 150,
     width: height
   },
   panel:{
-    flex:1,
-    backgroundColor: "green"
+    flex:1
   },
   coins:{
-    flex:4,
-    backgroundColor: "red"
+    flex:4
   },
   container:{
     height: width-180,
