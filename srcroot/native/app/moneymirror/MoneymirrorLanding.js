@@ -80,6 +80,12 @@ class MoneymirrorLanding extends Component {
               style={_.assign({}, styles.map, styles.moneyPos)}
               source={bills[this.state.currentBill].pic} />
             { _.map(bills,this.buttons.bind(this)) }
+
+            <View style={{ position: "absolute", backgroundColor: "#ff00ff00", width:35, left: 2*height/3-45, top: 10}}>
+              <Text style={{fontSize:10}}>
+                Take Photo
+              </Text>
+            </View>
           </Lay.PageContainer>
         </View>
       </Lay.HorzPageContainer>

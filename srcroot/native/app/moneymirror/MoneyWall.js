@@ -34,14 +34,23 @@ class MoneyWall extends Component {
           <Lay.HorzPageContainer>
             <BreadCrumbs path={breadCrumbs} />
             <View style={{flex:1}}>
+              <Image
+                resizeMode="stretch"
+                style={_.assign({}, styles.wall)}
+                source={require("../assets/kiosks/CoinWall.jpg")} />
               <View style={styles.container}>
-                <Image
-                  resizeMode="stretch"
-                  style={_.assign({}, styles.wall)}
-                  source={require("../assets/kiosks/CoinWall.jpg")} />
-                <Text>
-                abc
-                </Text>
+                <View style={styles.panel}>
+                  <Image
+                    style={_.assign({}, styles.panelImg)}
+                    source={require("../assets/kiosks/CoinWall.jpg")} />
+                </View>
+
+                <View style={styles.coins}>
+                  <Image
+                    resizeMode="stretch"
+                    style={_.assign({}, styles.panelImg)}
+                    source={require("../assets/kiosks/CoinWall.jpg")} />
+                </View>
               </View>
             </View>
           </Lay.HorzPageContainer>
@@ -50,11 +59,27 @@ class MoneyWall extends Component {
 }
 
 var styles = {
+  panelImg:{
+    height: 150,
+    width: 100
+  },
   wall:{
     height: 150,
     width: height
   },
+  panel:{
+    flex:1,
+    backgroundColor: "green"
+  },
+  coins:{
+    flex:4,
+    backgroundColor: "red"
+  },
   container:{
+    height: width-180,
+    flexDirection: "row",
+    flex: 1,
+    justifyContent: "flex-start"
   }
 }
 
