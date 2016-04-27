@@ -1,7 +1,7 @@
 import React, {
   Component,
   Text,
-  View,
+  View,Linking,
   Image,
   TouchableHighlight,
   Dimensions
@@ -44,10 +44,13 @@ class Tour extends Component {
           <Lay.HorzPageContainer>
             <BreadCrumbs path={breadCrumbs} />
             <View style={{flex:1}}>
-              <View style={styles.container}>
-                <Text>
-                  { this.props.title }
-                </Text>
+              <View>
+                <View style={styles.container}>
+                  <Text>
+                    { this.props.title }
+                  </Text>
+                  { this.audio() }
+                </View>
                 <Image
                   resizeMode="stretch"
                   style={_.assign({}, styles.pic)}
@@ -60,6 +63,22 @@ class Tour extends Component {
             </View>
           </Lay.HorzPageContainer>
         )
+    }
+    audio(){
+      if(this.props.crumb == "map")
+        return(
+          <TouchableHighlight 
+              onPress={ this.gotoAudio }>
+            <Image
+              resizeMode="stretch"
+              style={{height:20,width:20}}
+              source={require("../assets/audio_icon.png")} />
+          </TouchableHighlight>
+        )
+    }
+    gotoAudio(){
+      Linking.openURL("https://youtu.be/3ki5bLuDAZQ?t=1m1s")
+      .catch(err => console.error('An error occurred', err));
     }
     coinwall(){
       if(this.props.crumb == "coin wall")
@@ -91,6 +110,8 @@ var styles = {
     width: height
   },
   container:{
+    flexDirection: "row",
+    justifyContent: "space-around"
   }
 }
 
