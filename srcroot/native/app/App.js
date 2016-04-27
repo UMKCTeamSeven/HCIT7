@@ -2,9 +2,7 @@ import {Actions, Scene, Router} from 'react-native-router-flux';
 import React, {Component, Text, AsyncStorage} from 'react-native';
 
 import Home from "./Home"
-import TableofContents from "./TableofContents"
 
-import KioskContainer from "./kiosk/KioskContainer"
 import KioskLanding from "./kiosk/KioskLanding"
 import KioskDetails from "./kiosk/KioskDetails"
 
@@ -13,7 +11,6 @@ import MoneymirrorMoneyShot from "./moneymirror/MoneyShot"
 import MoneyWall from "./moneymirror/MoneyWall"
 import Coins from "./moneymirror/Coins"
 
-import TourContainer from "./tour/TourContainer"
 import TourLanding from "./tour/TourLanding"
 import TourCounterfiet from "./tour/TourCounterfiet"
 import TourCoins from "./tour/TourCoins"

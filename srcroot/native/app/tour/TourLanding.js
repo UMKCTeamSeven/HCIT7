@@ -15,6 +15,7 @@ import LocBtn from "../UI/LocBtn"
 import Lay from "../layout/Layout"
 import BreadCrumbs from "../layout/BreadCrumbs"
 
+import Store from "../layout/Store"
 import Locations from "../location"
 
 class Tour extends Component {

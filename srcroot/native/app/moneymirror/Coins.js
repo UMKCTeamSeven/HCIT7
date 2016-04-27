@@ -30,7 +30,7 @@ class Tour extends Component {
           title:"coins",
           link: "moneywall"
         },{
-          title:"penny",
+          title: this.props.data.type,
           link: "moneywall"
         }]
         return(
@@ -38,11 +38,12 @@ class Tour extends Component {
             <BreadCrumbs path={breadCrumbs} />
             <View style={{flex:1}}>
               <View style={styles.container}>
+                    <Image
+                      resizeMode="stretch"
+                      style={_.assign({}, styles.coinImg)}
+                      source={require("../assets/money/pennyfront.png")} />
                 <Text>
-                  { this.props.title }
-                </Text>
-                <Text>
-                  each coin will have their details here
+                  things about a { this.props.data.type }
                 </Text>
               </View>
             </View>
@@ -56,7 +57,9 @@ var styles = {
     height: width-100,
     width: height
   },
-  container:{
+  coinImg:{
+    height: 100,
+    width: 100
   }
 }
 

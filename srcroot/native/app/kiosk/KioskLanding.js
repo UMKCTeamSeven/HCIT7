@@ -15,13 +15,32 @@ import LocBtn from "../UI/LocBtn"
 import Lay from "../layout/Layout"
 import BreadCrumbs from "../layout/BreadCrumbs"
 
+import List from "../layout/List"
+import Store from "../layout/Store"
 import Locations from "../location"
 
 class KioskLanding extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      itemsActive: {}
     }
+  }
+  componentDidMount(){
+    _.map(Locations,this.isActive.bind(this,""))
+  }
+  isActive(path, item, indx){
+    path = `${path}${indx}`
+
+    Store.get("TOC"+path)
+    .then((res)=>{
+        let active = this.state.itemsActive
+        active[`${path}`] = res
+        this.setState({itemsActive:active})
+
+    })
+
+    _.map(item.subSections,this.isActive.bind(this,path))
   }
     render() {
         let breadCrumbs = [{
@@ -39,6 +58,7 @@ class KioskLanding extends Component {
           <View style={styles.container}>
             { _.map(Locations, this.card.bind(this)) }
           </View>
+          <List items={Locations}/>
         </View>
       </Lay.HorzPageContainer>
         )
@@ -48,9 +68,13 @@ class KioskLanding extends Component {
         <TouchableHighlight key={indx} style={styles.card}
             onPress={ this.gotoKiosk.bind(this,item) }>
             <View>
-              <Text style={{fontSize:10}}>
-                {item.title}
-              </Text>
+              <View style={styles.topPart}>
+                <Text style={{fontSize:10}}>
+                  {item.title}
+                </Text>
+                { this.visited(item.path) }
+              </View>
+
               <Image
                 resizeMode="stretch"
                 style={_.assign({}, styles.pic)}
@@ -59,12 +83,25 @@ class KioskLanding extends Component {
         </TouchableHighlight>
       )
     }
+    visited(path){
+      if(this.state.itemsActive[path] == "true")
+        return(
+          <Image
+            resizeMode="stretch"
+            style={{height:10,width:10}}
+            source={require("../assets/checkmark.png")} />
+        )
+    }
     gotoKiosk(item){
       Actions.kiosk_details(item)
     }
 }
 
 var styles = {
+  topPart:{
+    flexDirection: "row",
+    justifyContent: "space-around"
+  },
   pic:{
     height: width/3,
     width: width/3

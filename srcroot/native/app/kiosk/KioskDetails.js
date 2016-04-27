@@ -15,12 +15,19 @@ import LocBtn from "../UI/LocBtn"
 import Lay from "../layout/Layout"
 import BreadCrumbs from "../layout/BreadCrumbs"
 
+import Store from "../layout/Store"
+import Locations from "../location"
+
 class Tour extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      currentLocation: {}
+      currentLocation: {},
+      itemsActive: {}
     }
+  }
+  componentDidMount(){
+    Store.set("TOC"+this.props.path,"true")
   }
     render() {
         let breadCrumbs = [{
@@ -30,7 +37,7 @@ class Tour extends Component {
           title:"kiosks",
           link: "kiosk_landing"
         },{
-          title:"details",
+          title: this.props.crumb,
           link: "kiosk_landing"
         }]
         return(
@@ -48,14 +55,37 @@ class Tour extends Component {
                 <Text>
                   { this.props.about }
                 </Text>
+                { this.coinwall() }
               </View>
             </View>
           </Lay.HorzPageContainer>
         )
     }
+    coinwall(){
+      if(this.props.crumb == "coin wall")
+        return(
+          <TouchableHighlight style={styles.cw}
+              onPress={ this.gotoCoinWall }>
+              <View>
+                <Text style={{fontSize:10}}>
+                  Interactive Wall ->
+                </Text>
+              </View>
+          </TouchableHighlight>
+        )
+    }
+    gotoCoinWall(){
+      Actions.moneywall()
+    }
 }
 
 var styles = {
+  cw:{
+    height: 15,
+    width: 100,
+    borderWidth: 2,
+    borderColor: "blue"
+  },
   pic:{
     height: width-100,
     width: height

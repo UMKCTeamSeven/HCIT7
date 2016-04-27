@@ -2,6 +2,7 @@ import React, {
   Component,
   View,
   Text,
+  Image,
   TouchableHighlight,
   Dimensions
 } from 'react-native';
@@ -21,15 +22,23 @@ class MoneyButton extends Component {
     let active = {  bottom: this.props.data.bottom*h2/100,
                     left: this.props.data.left*w2/100
     }
-    if(this.props.active)
-      active.borderWidth = 2
 
     return(
       <View style={ _.assign({}, styles.location, active) }>
         <TouchableHighlight onPress={ this.btnPress.bind(this,this.props.btnKey) }>
-            <Text/>
+            { this.area() }
         </TouchableHighlight>
       </View>
+    )
+  }
+  area(){
+    if(!this.props.active)
+      return(<Text/>)
+    return(
+      <Image
+        resizeMode="stretch"
+        style={_.assign({}, styles.map)}
+        source={require("../assets/checkmark.png")} />
     )
   }
   btnPress(indx){
@@ -38,23 +47,17 @@ class MoneyButton extends Component {
 }
 
 var styles = {
-  info:{
+  map:{
     position: "relative",
-    borderStyle:"solid",
-    bottom: 30,
-    left: 15,
-    borderColor: "darkgray",
-    borderRadius: 5,
-    borderWidth: 1,
-    backgroundColor: "lightgray",
-    padding: 3,
-    width: 70
+    top: -10,
+    left: 8,
+    height:25,
+    width:35,
   },
   location:{
     position: "absolute",
     height:25,
-    width:35,
-    borderRadius: 2
+    width:35
   }
 }
 

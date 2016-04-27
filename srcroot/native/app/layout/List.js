@@ -47,10 +47,10 @@ class List extends Component {
     })
 
     let children = this.state.hasChildren
-    children[`${path}`] = item.children
+    children[`${path}`] = item.subSections
     this.setState({hasChildren:children})
 
-    _.map(item.children,this.isActive.bind(this,path))
+    _.map(item.subSections,this.isActive.bind(this,path))
   }
   render() {
     return(
@@ -79,12 +79,12 @@ class List extends Component {
             navStyle) }>
             <Text style={_.assign({},textStyle,{fontSize:8})}>
               { this.LIsymbol(path,indx) }
-              { item.text }
+              { item.title }
               { this.isPathShowing.call(this,path) }
             </Text>
           </View>
         </TouchableHighlight>
-        { this.showChildren(item.children,path) }
+        { this.showChildren(item.subSections,path) }
       </View>
     )
   }

@@ -47,21 +47,28 @@ class MoneyWall extends Component {
                 </View>
 
                 <View style={styles.coins}>
-                <TouchableHighlight onPress={ Actions.coins }>
-                  <Image
-                    resizeMode="stretch"
-                    style={_.assign({}, styles.coinImg)}
-                    source={require("../assets/money/pennyfront.png")} />
-                </TouchableHighlight>
-                  <Image
-                    resizeMode="stretch"
-                    style={_.assign({}, styles.coinImg)}
-                    source={require("../assets/money/nickelfront.png")} />
+                  <TouchableHighlight onPress={ this.gotoCoin.bind(this,
+                        {type:"penny"}) }>
+                    <Image
+                      resizeMode="stretch"
+                      style={_.assign({}, styles.coinImg)}
+                      source={require("../assets/money/pennyfront.png")} />
+                  </TouchableHighlight>
+                  <TouchableHighlight onPress={ this.gotoCoin.bind(this,
+                        {type:"nickel"}) }>
+                    <Image
+                      resizeMode="stretch"
+                      style={_.assign({}, styles.coinImg)}
+                      source={require("../assets/money/nickelfront.png")} />
+                  </TouchableHighlight>
                 </View>
               </View>
             </View>
           </Lay.HorzPageContainer>
         )
+    }
+    gotoCoin(item){
+      Actions.coins({data:item})
     }
 }
 
