@@ -2,7 +2,7 @@ import React, {
   Component,
   Text,
   View,Linking,
-  Image,
+  Image,Modal,
   TouchableHighlight,
   Dimensions
 } from 'react-native';
@@ -23,11 +23,19 @@ class Tour extends Component {
     super(props)
     this.state = {
       currentLocation: {},
-      itemsActive: {}
+      itemsActive: {},
+      vis: false
     }
   }
   componentDidMount(){
-    Store.set("TOC"+this.props.path,"true")
+    Store.get("TOC"+this.props.path)
+    .then((res)=>{
+        
+        if(res!="true")
+          Store.set("TOC"+this.props.path,"true")
+        else
+          this.setState({vis:true})
+    })
   }
     render() {
         let breadCrumbs = [{
@@ -43,6 +51,7 @@ class Tour extends Component {
         return(
           <Lay.HorzPageContainer>
             <BreadCrumbs path={breadCrumbs} />
+            { this.showmodal() }
             <View style={{flex:1}}>
               <View>
                 <View style={styles.container}>
@@ -63,6 +72,23 @@ class Tour extends Component {
             </View>
           </Lay.HorzPageContainer>
         )
+    }
+
+    showmodal(){
+      return(
+        <Modal
+          animated={false}
+          transparent={false}
+          visible={this.props.path == "0" && this.state.vis}
+          onRequestClose={() => {this.setState({vis:false})}}
+          >
+            <View>
+              <Text>
+                Youve seen all the exibits, return to the front counter for a special prize
+              </Text>
+            </View>
+        </Modal>
+      )
     }
     audio(){
       if(this.props.crumb == "map")
