@@ -36,8 +36,6 @@ class LocationButton extends Component {
 
     if(this.state.explored == "true")
       active.backgroundColor ="dodgerblue"
-    if(this.props.active)
-      active.backgroundColor ="green"
 
     if(this.props.data.grade == 1)
       active.borderColor = "green"
@@ -45,6 +43,9 @@ class LocationButton extends Component {
       active.borderColor = "yellow"
     else if(this.props.data.grade == 3)
       active.borderColor = "red"
+
+    if(this.props.active)
+      active.backgroundColor = active.borderColor
 
     return(
       <View style={ _.assign({}, styles.location, active) }>

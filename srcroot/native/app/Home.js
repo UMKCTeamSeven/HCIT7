@@ -22,6 +22,11 @@ class Home extends Component {
                 <Text>Guided Tour</Text>
               </TouchableHighlight>
             </View>
+            <View style={ _.assign({},styles.btn) }>
+              <TouchableHighlight onPress={ Actions.tour_landing2 }>
+                <Text>Guided Tour 2.0</Text>
+              </TouchableHighlight>
+            </View>
             <View style={ _.assign({}, styles.btn) }>
               <TouchableHighlight onPress={ Actions.moneymirror_landing }>
                 <Text>Money Mirror</Text>
