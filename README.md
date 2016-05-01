@@ -1,8 +1,7 @@
 # HCIT7
 
 Platform : 
-ReactNative for Android/IOS mobile
-API level 21 min 
+ReactNative IOS mobile
 
 https://www.kansascityfed.org/moneymuseum
 
