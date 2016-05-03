@@ -59,7 +59,7 @@ class Tour extends Component {
   buttons(btn, indx){
     return(
       <LocBtn2 key={indx} data={btn} active={this.state.currentLocation==indx}
-        btnKey={indx} onPress={ this.currentBtn.bind(this) } />
+        btnKey={indx} onPress={ this.currentBtn.bind(this) } admin={true}/>
     )
   }
   buttons2(btn, indx){

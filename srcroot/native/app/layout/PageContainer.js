@@ -26,7 +26,7 @@ let styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "space-around",
-    backgroundColor: "red"
+    backgroundColor: "lightgray"
   }
 })
 
