@@ -17,11 +17,7 @@ class Home extends Component {
             <Text style={ {fontSize:40,fontWeight:"900"} }>Money Museum</Text>
           </View>
           <View style={{flex:4}}>
-            <View style={ _.assign({},styles.btn) }>
-              <TouchableHighlight onPress={ Actions.tour_landing }>
-                <Text>Guided Tour</Text>
-              </TouchableHighlight>
-            </View>
+
             <View style={ _.assign({},styles.btn) }>
               <TouchableHighlight onPress={ Actions.tour_landing2 }>
                 <Text>Guided Tour 2.0</Text>
@@ -44,7 +40,7 @@ class Home extends Component {
             </View>
             <View style={ _.assign({},styles.btn) }>
               <TouchableHighlight onPress={ Actions.admin }>
-                <Text>Admin Page</Text>
+                <Text>Admin Dash</Text>
               </TouchableHighlight>
             </View>
           </View>

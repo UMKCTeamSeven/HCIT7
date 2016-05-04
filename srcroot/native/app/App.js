@@ -11,7 +11,7 @@ import MoneymirrorMoneyShot from "./moneymirror/MoneyShot"
 import MoneyWall from "./moneymirror/MoneyWall"
 import Coins from "./moneymirror/Coins"
 
-import TourLanding from "./tour/TourLanding"
+
 import TourLanding2 from "./tour/TourLanding2"
 import Admin from "./tour/Admin"
 import Stats from "./tour/Stats"
@@ -51,7 +51,7 @@ class App extends Component {
 
 
 
-            <Scene key="tour_landing" component={TourLanding} hideNavBar={true} />
+            
             <Scene key="tour_landing2" component={TourLanding2} hideNavBar={true} />
             <Scene key="admin" component={Admin} hideNavBar={true} />
             <Scene key="stats" component={Stats} hideNavBar={true} />
